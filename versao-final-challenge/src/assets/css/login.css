@@ -1,0 +1,117 @@
+:root {
+    --care-primary: #1E76DD;
+    --care-corporate: #003087;
+    --care-light: #EBF3FF;
+    --text-dark: #333333;
+    --text-muted: #777777;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+}
+
+.left-panel {
+    background-image: url('../imgs/care-background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.branding-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 48, 135, 0.8) 0%, rgba(30, 118, 221, 0.6) 100%);
+}
+
+.right-panel {
+    background-color: white;
+}
+
+.login-card {
+    background-color: white;
+    border: none !important;
+}
+
+.color-corporate {
+    color: var(--care-corporate);
+}
+
+.color-primary {
+    color: var(--care-primary);
+}
+
+.care-tabs .nav-link {
+    color: var(--text-dark);
+    font-weight: 600;
+    border: 1px solid #dee2e6;
+    margin: 0 5px;
+    background-color: white;
+}
+
+.care-tabs .nav-link.active {
+    background-color: var(--care-primary) !important;
+    color: white !important;
+    border-color: var(--care-primary) !important;
+}
+
+.form-control {
+    border: 1px solid #dee2e6;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.form-control:focus {
+    border-color: var(--care-primary);
+    box-shadow: 0 0 0 0.2rem rgba(30, 118, 221, 0.1);
+}
+
+.btn-primary-care {
+    background-color: var(--care-primary);
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-care:hover {
+    background-color: #1665c5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 118, 221, 0.2);
+}
+
+/* Animations */
+.branding-content {
+    animation: fadeInRight 1s ease-out;
+}
+
+.login-card {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInRight {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 991.98px) {
+    .left-panel {
+        display: none !important;
+    }
+    .right-panel {
+        min-height: 100vh;
+    }
+}

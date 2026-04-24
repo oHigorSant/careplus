@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Plus - Perfil</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/assets/css/calendar.css" />
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="brand mb-4">
+                <h2 class="fw-bold m-0" style="color: white; line-height: 1;"><span style="font-weight: 300;">Care</span><br>Plus <i class="bi bi-activity"></i></h2>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li><a href="inicio.html"><i class="bi bi-house"></i> Início</a></li>
+                <li><a href="perfil.html" class="active"><i class="bi bi-person"></i> Perfil</a></li>
+                <li><a href="index.html"><i class="bi bi-calendar-check-fill"></i> Consultas</a></li>
+                <!-- <li><a href="#"><i class="bi bi-bell"></i> Notificações</a></li>
+                <li><a href="#"><i class="bi bi-gear"></i> Configurações</a></li> -->
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content" style="background-color: #F8F9FA;">
+            <div class="mx-auto w-100" style="max-width: 1400px;">
+                
+                <!-- Global Header Icons -->
+                <div class="d-flex justify-content-end align-items-center mb-4 pt-2">
+                    <div class="header-icons d-flex align-items-center">
+                        <!-- Bell Dropdown -->
+                        <div class="notification-bell dropdown me-3">
+                            <div data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                                <i class="bi bi-bell"></i>
+                                <span class="notification-dot"></span>
+                            </div>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0" style="min-width: 250px;">
+                                <li><h6 class="dropdown-header fw-bold" style="color: var(--care-corporate);">Alertas</h6></li>
+                                <li><a class="dropdown-item text-wrap" href="#" style="font-size: 0.85rem;"><i class="bi bi-cloud-rain text-primary me-2"></i>Risco de chuva na sua próxima consulta.</a></li>
+                                <li><a class="dropdown-item text-wrap" href="perfil.html" style="font-size: 0.85rem;"><i class="bi bi-exclamation-circle text-warning me-2"></i>Lembrete: Complete seu perfil para atingir o Nível Diamante!</a></li>
+                            </ul>
+                        </div>
+                        <!-- Gear Dropdown -->
+                        <div class="dropdown">
+                            <i class="bi bi-gear" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                                <li><a class="dropdown-item" href="perfil.html"><i class="bi bi-person me-2"></i>Perfil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-card-checklist me-2"></i>Plano</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-credit-card me-2"></i>Pagamentos</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-moon me-2"></i>Modo escuro</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Permitir notificações</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger fw-bold" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Log off</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                <!-- Left Column (Profile, Bio, Data) -->
+                <div class="col-lg-4 d-flex flex-column gap-4">
+                    <!-- Profile Header Card -->
+                    <div class="care-card profile-center-card text-center d-flex flex-column align-items-center">
+                        <div class="profile-image-container position-relative mb-3">
+                            <img src="C:/Users/Higor Sant'Anna/.gemini/antigravity/brain/fa0e4b88-a944-45d1-9dcf-5cf74b1651f4/profile_picture_1775333189612.png" alt="Profile" class="rounded-circle profile-large-avatar" id="avatarImage" style="width: 130px; height: 130px; border: 4px solid var(--care-primary); object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div class="edit-badge" id="editAvatarBtn" style="cursor: pointer;">
+                                <i class="bi bi-pencil-fill"></i>
+                            </div>
+                            <input type="file" id="avatarUpload" style="display: none;" accept="image/*">
+                        </div>
+                        <h4 class="fw-bold mb-2" style="color: var(--care-corporate); font-size: 1.4rem;">Carlos Figueredo</h4>
+                        <span class="badge rounded-pill gold-badge px-3 py-2">Nível Ouro</span>
+                    </div>
+
+                    <!-- Bio Card -->
+                    <div class="care-card" id="cardBio">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-section-title m-0" style="color: var(--care-corporate); font-size: 1rem; font-weight: 600;">Bio</h5>
+                            <button id="btnSaveBio" class="btn btn-primary btn-sm rounded-pill btn-edit" style="display: none;"><span class="me-1 btn-text">Salvar</span><i class="bi bi-check"></i></button>
+                        </div>
+                        <div class="position-relative" id="bioEditContainer">
+                            <textarea id="bioTextarea" class="form-control bio-textarea" rows="2" placeholder="Escreva um pouco sobre você..." style="border:none; background-color: #F8F9FA; border-radius: 8px; font-size: 0.9rem; font-style: italic;"></textarea>
+                            <i class="bi bi-check-circle-fill text-success position-absolute" id="bioCheck" style="display: none; right: 10px; bottom: 10px; font-size: 1.2rem;"></i>
+                        </div>
+                        <div id="bioDisplayContainer" style="display: none; background-color: #F8F9FA; border-radius: 8px; padding: 12px;">
+                            <p id="bioDisplayText" class="m-0" style="font-size: 0.9rem; color: var(--text-muted); font-style: italic;"></p>
+                        </div>
+                    </div>
+
+                    <!-- Personal Data Card -->
+                    <div class="care-card" id="cardDadosPessoais">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-section-title m-0" style="color: var(--care-corporate); font-size: 1rem; font-weight: 600;">Dados Pessoais</h5>
+                            <button id="btnEditDados" class="btn btn-primary btn-sm rounded-pill btn-edit"><span class="me-1 btn-text">Editar</span><i class="bi bi-pencil"></i></button>
+                        </div>
+                        <div class="info-group mb-3">
+                            <span class="info-label">Nome Completo</span>
+                            <span class="info-value">Carlos Figreredo de Abreu</span>
+                        </div>
+                        <div class="info-group mb-3">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">carlos.fig@email.com</span>
+                        </div>
+                        <div class="info-group mb-0">
+                            <span class="info-label">Celular</span>
+                            <span class="info-value">5511999999999</span>
+                        </div>
+                    </div>
+
+                    <!-- Address Card -->
+                    <div class="care-card" id="cardEndereco">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-section-title m-0" style="color: var(--care-corporate); font-size: 1rem; font-weight: 600;">Endereço</h5>
+                            <button id="btnEditEndereco" class="btn btn-primary btn-sm rounded-pill btn-edit"><span class="me-1 btn-text">Editar</span><i class="bi bi-pencil"></i></button>
+                        </div>
+                        <div class="info-group mb-3">
+                            <span class="info-label">Logradouro</span>
+                            <span class="info-value">Avenida User Experience</span>
+                        </div>
+                        <div class="info-group mb-3">
+                            <span class="info-label">Bairro</span>
+                            <span class="info-value">Pomar das Laranjeiras</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="info-group m-0">
+                                    <span class="info-label">Número</span>
+                                    <span class="info-value">2853</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="info-group m-0">
+                                    <span class="info-label">Cep</span>
+                                    <span class="info-value">16857962</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column (Gamification) -->
+                <div class="col-lg-5 d-flex flex-column gap-4">
+                    <!-- Progress Stats -->
+                    <div class="d-flex flex-column gap-3">
+                        <div class="care-card p-3 d-flex align-items-center gap-3" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(30,118,221,0.05); border: 1px solid rgba(30,118,221,0.1);">
+                            <div class="ouro-badge-icon flex-shrink-0">
+                                <i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-end gap-2 mb-1">
+                                    <span class="fw-bold" style="color: var(--care-primary); font-size: 1.1rem;">3179</span>
+                                    <span style="color: var(--care-primary); font-size: 0.8rem; font-weight: 600;">Care Points</span>
+                                </div>
+                                <div class="progress-container mb-1 position-relative">
+                                    <div class="progress" style="height: 12px; border-radius: 10px; background-color: #E2E8F0;">
+                                        <div class="progress-bar" role="progressbar" style="width: 75%; background-color: var(--care-primary); border-radius: 10px;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <!-- Tooltip icon at end of bar -->
+                                    <i class="bi bi-info-circle position-absolute" style="right: -20px; top: -2px; font-size: 0.8rem; color: var(--care-primary);"></i>
+                                </div>
+                                <div class="d-flex justify-content-between mx-1" style="font-size: 0.75rem; font-weight: 600;">
+                                    <span style="color: #F8B400;">Ouro</span>
+                                    <span style="color: var(--text-muted); font-size: 0.70rem;">1834 CP para</span>
+                                    <span style="color: #00A3FF;">Diamante</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notification -->
+                        <div class="care-card p-3 d-flex align-items-center gap-3 position-relative notification-card" style="background-color: #FAFAFA; border: 1px dashed rgba(248,180,0,0.4); border-radius: 12px;">
+                            <div class="x2-badge flex-shrink-0">
+                                x2
+                            </div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); padding-right: 15px;">
+                                <span style="font-weight: 500;">Você ganhou 365 Care Points por cumprir um objetivo:</span> Comparecer à 2 consultas.
+                            </div>
+                            <button type="button" class="btn-close ms-auto" aria-label="Close" style="font-size: 0.6rem; position: absolute; top: 10px; right: 10px;"></button>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Rewards Card -->
+                    <div class="care-card flex-grow-1" style="background-color: #F8FAFC;">
+                        <h5 class="card-section-title mb-4" style="color: var(--care-corporate); font-size: 1rem; font-weight: 600;">Recompensas</h5>
+                        
+                        <div class="rewards-timeline ps-0 pe-2">
+                            <!-- step 1 -->
+                            <div class="timeline-step completed">
+                                <div class="icon-wrapper">
+                                    <div class="step-icon"><i class="bi bi-check2"></i></div>
+                                </div>
+                                <div class="step-content">
+                                    <span class="step-text" style="color: var(--care-corporate); font-weight: 500;">Upgrade no plano de saúde</span>
+                                </div>
+                            </div>
+                            <!-- step 2 -->
+                            <div class="timeline-step completed">
+                                <div class="icon-wrapper">
+                                    <div class="step-icon"><i class="bi bi-check2"></i></div>
+                                </div>
+                                <div class="step-content">
+                                    <span class="step-text" style="color: var(--care-corporate); font-weight: 500;">Consultas Premium</span>
+                                </div>
+                            </div>
+                            <!-- step 3 -->
+                            <div class="timeline-step current">
+                                <div class="icon-wrapper">
+                                    <div class="step-icon darker-yellow">3</div>
+                                </div>
+                                <div class="step-content">
+                                    <span class="step-text" style="color: var(--care-corporate); font-weight: 500;">Wearables</span>
+                                </div>
+                            </div>
+                            <!-- step 4 -->
+                            <div class="timeline-step upcoming" style="margin-bottom: 30px;">
+                                <div class="icon-wrapper">
+                                    <div class="step-icon">4</div>
+                                </div>
+                                <div class="step-content">
+                                    <span class="step-text" style="color: var(--care-corporate); font-weight: 500;">Prioridade no agendamento</span>
+                                </div>
+                            </div>
+                            <!-- final step -->
+                            <div class="timeline-step border-0 pt-0 pb-0">
+                                <div class="icon-wrapper">
+                                    <div class="diamond-badge-complex">
+                                        <div class="diamond-badge-container">
+                                            <div class="diamond-rosette"></div>
+                                            <div class="diamond-inner">
+                                                <svg width="24" height="18" viewBox="0 0 20 15" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="2 7 7 12 18 2" />
+                                                </svg>
+                                            </div>
+                                            <div class="diamond-ribbon"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-content d-flex flex-column">
+                                    <h5 class="fw-bold mb-1" style="color: var(--care-corporate); font-size: 1.25rem;">Nível Diamond</h5>
+                                    <a href="#" class="text-decoration-none" style="color: #66C5F0; font-size: 0.85rem; font-weight: 500;">Confira os benefícios</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Profile Completion & Small Cards) -->
+                <div class="col-lg-3 d-flex flex-column gap-4">
+                    <!-- Progress Card -->
+                    <div class="care-card text-center d-flex flex-column align-items-center py-4">
+                        <h5 class="card-section-title mb-1" style="color: var(--care-corporate); font-weight: 700; font-size: 1.1rem;">Complete seu perfil</h5>
+                        <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 25px;">Ganhe Care Points!</p>
+
+                        <!-- Circular Progress -->
+                        <div class="circular-progress mb-4">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+                                <circle class="progress-circle" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="113.2"></circle>
+                            </svg>
+                            <div class="progress-text">60%</div>
+                        </div>
+
+                        <!-- Checklists -->
+                        <ul class="checklist text-start w-100 ps-2" style="list-style:none;">
+                            <li><i class="bi bi-check2 checklist-check"></i> Foto de Perfil</li>
+                            <li><i class="bi bi-check2 checklist-check"></i> Informações Pessoais</li>
+                            <li id="liBio"><i class="bi bi-x checklist-cross" id="iconBio"></i> Bio</li>
+                            <li id="liNotificacoes" class="d-flex justify-content-between align-items-center pe-3">
+                                <span><i class="bi bi-x checklist-cross" id="iconNotificacoes"></i> Notificações</span>
+                                <button id="btnOpenNotificacoesModal" class="btn btn-sm btn-primary rounded-pill py-0 px-2 fw-bold" style="font-size: 0.65rem;">Ativar</button>
+                            </li>
+                            <li><i class="bi bi-check2 checklist-check"></i> Localização</li>
+                            <li><i class="bi bi-check2 checklist-check"></i> Confirmar E-mail</li>
+                        </ul>
+                    </div>
+
+                    <!-- Small steps -->
+                    <div class="care-card d-flex align-items-center gap-3 p-3" style="border-radius: 20px;" id="passoCard">
+                        <div class="mini-circular-progress flex-shrink-0">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="bg-circle" cx="50" cy="50" r="40"></circle>
+                                <circle class="progress-circle" id="circleStep" cx="50" cy="50" r="40" stroke-dasharray="251" stroke-dashoffset="125.5"></circle>
+                            </svg>
+                            <div class="progress-text" id="textStep" style="font-size: 0.8rem;">4 de 6</div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center" style="line-height: 1.2;">
+                            <strong style="color: var(--care-corporate); font-size: 0.95rem;" id="stepTitle">Passo 4</strong>
+                            <span class="text-muted" style="font-size: 0.8rem; font-weight: 500;">Complete para ganhar recompensas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div> <!-- Fechamento da div mx-auto -->
+        </main>
+    </div>
+
+    <!-- Modal Notificações -->
+    <div class="modal fade" id="modalNotificacoes" tabindex="-1" aria-labelledby="modalNotificacoesLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 12px; border: none;">
+          <div class="modal-header" style="border-bottom: none;">
+            <h5 class="modal-title fw-bold" id="modalNotificacoesLabel" style="color: var(--care-corporate);">Ativar Notificações</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <i class="bi bi-bell text-warning mb-3 d-block" style="font-size: 3rem;"></i>
+            <p class="mb-0 text-muted">Deseja ativar as notificações para subir ao nível Diamante e ganhar mais Care Points?</p>
+          </div>
+          <div class="modal-footer" style="border-top: none; justify-content: center;">
+            <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Agora não</button>
+            <button type="button" class="btn btn-primary rounded-pill px-4" id="btnAtivarNotificacoes">Sim, ativar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Parabéns -->
+    <div class="modal fade" id="modalParabens" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 16px; border: 2px solid #00A3FF; box-shadow: 0 10px 30px rgba(0,163,255,0.2);">
+          <div class="modal-body text-center p-5">
+            <i class="bi bi-gem d-block mb-3" style="font-size: 4rem; color: #00A3FF; animation: pulse 2s infinite;"></i>
+            <h3 class="fw-bold mb-3" style="color: var(--care-corporate);">Parabéns!</h3>
+            <p class="text-muted mb-4">Você completou seu perfil e atingiu o <strong style="color: #00A3FF;">Nível Diamante</strong>! Aproveite suas novas recompensas exclusivas.</p>
+            <button type="button" class="btn btn-primary rounded-pill px-5 py-2 fw-bold" data-bs-dismiss="modal" style="background: linear-gradient(135deg, #00A3FF, #0056b3); border: none;">Incrível!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Avatar upload
+            const editAvatarBtn = document.getElementById('editAvatarBtn');
+            const avatarUpload = document.getElementById('avatarUpload');
+            const avatarImage = document.getElementById('avatarImage');
+
+            editAvatarBtn.addEventListener('click', () => {
+                avatarUpload.click();
+            });
+
+            avatarUpload.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        avatarImage.src = e.target.result;
+                    }
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+
+            // 2. Edit info fields
+            function setupEdit(btnId, cardId) {
+                const btn = document.getElementById(btnId);
+                const card = document.getElementById(cardId);
+                let isEditing = false;
+
+                btn.addEventListener('click', () => {
+                    const values = card.querySelectorAll('.info-value');
+                    const btnText = btn.querySelector('.btn-text');
+                    const icon = btn.querySelector('i');
+
+                    if (!isEditing) {
+                        // Start editing
+                        values.forEach(val => {
+                            const currentText = val.innerText;
+                            val.innerHTML = `<input type="text" class="form-control form-control-sm" value="${currentText}">`;
+                        });
+                        btnText.innerText = 'Salvar';
+                        icon.classList.remove('bi-pencil');
+                        icon.classList.add('bi-check');
+                        btn.classList.replace('btn-primary', 'btn-success');
+                    } else {
+                        // Save changes
+                        values.forEach(val => {
+                            const input = val.querySelector('input');
+                            if (input) {
+                                val.innerText = input.value;
+                            }
+                        });
+                        btnText.innerText = 'Editar';
+                        icon.classList.remove('bi-check');
+                        icon.classList.add('bi-pencil');
+                        btn.classList.replace('btn-success', 'btn-primary');
+                    }
+                    isEditing = !isEditing;
+                });
+            }
+
+            setupEdit('btnEditDados', 'cardDadosPessoais');
+            setupEdit('btnEditEndereco', 'cardEndereco');
+
+            // 3. Bio check icon e botão Salvar
+            const bioTextarea = document.getElementById('bioTextarea');
+            const bioCheck = document.getElementById('bioCheck');
+            const bioEditContainer = document.getElementById('bioEditContainer');
+            const bioDisplayContainer = document.getElementById('bioDisplayContainer');
+            const bioDisplayText = document.getElementById('bioDisplayText');
+            const iconBio = document.getElementById('iconBio');
+            const btnSaveBio = document.getElementById('btnSaveBio');
+            let isBioEditing = true;
+
+            bioTextarea.addEventListener('input', () => {
+                bioCheck.style.display = 'none';
+
+                if (bioTextarea.value.trim() !== '') {
+                    btnSaveBio.style.display = 'inline-block';
+                } else {
+                    btnSaveBio.style.display = 'none';
+                }
+            });
+
+            btnSaveBio.addEventListener('click', () => {
+                if (isBioEditing) {
+                    if (bioTextarea.value.trim() !== '') {
+                        // Ocultar textarea e exibir o texto estático
+                        bioDisplayText.innerText = bioTextarea.value.trim();
+                        bioEditContainer.style.display = 'none';
+                        bioDisplayContainer.style.display = 'block';
+                        
+                        // Transformar botão em Editar
+                        btnSaveBio.innerHTML = '<span class="me-1 btn-text">Editar</span><i class="bi bi-pencil"></i>';
+                        
+                        localStorage.setItem('userBio', bioTextarea.value.trim());
+                        completeTask('bio');
+                        isBioEditing = false;
+                    }
+                } else {
+                    // Voltar o edit do textarea
+                    bioDisplayContainer.style.display = 'none';
+                    bioEditContainer.style.display = 'block';
+                    bioTextarea.focus();
+                    
+                    // Transformar botão em Salvar
+                    btnSaveBio.innerHTML = '<span class="me-1 btn-text">Salvar</span><i class="bi bi-check"></i>';
+                    isBioEditing = true;
+                }
+            });
+
+            // 4. Notifications logic & Gamification
+            const liNotificacoes = document.getElementById('liNotificacoes');
+            const modalNotificacoes = new bootstrap.Modal(document.getElementById('modalNotificacoes'));
+            const btnAtivarNotificacoes = document.getElementById('btnAtivarNotificacoes');
+            const iconNotificacoes = document.getElementById('iconNotificacoes');
+            const btnOpenNotificacoesModal = document.getElementById('btnOpenNotificacoesModal');
+            
+            const circleStep = document.getElementById('circleStep');
+            const textStep = document.getElementById('textStep');
+            const stepTitle = document.getElementById('stepTitle');
+            
+            let passos = 4;
+            let bioCompleted = false;
+            let notificacoesCompleted = false;
+
+            function checkDiamondLevel() {
+                if (bioCompleted && notificacoesCompleted) {
+                    
+                    localStorage.setItem('userLevel', 'diamante');
+                    document.body.classList.add('is-diamond');
+
+                    // Mudar badge Ouro para Diamante (o CSS lida com a cor)
+                    const nivelBadge = document.querySelector('.gold-badge');
+                    if (nivelBadge) {
+                        nivelBadge.innerText = 'Nível Diamante';
+                    }
+
+                    // Mudar ícone do stats
+                    const badgeIcon = document.querySelector('.ouro-badge-icon i');
+                    if (badgeIcon) {
+                        badgeIcon.className = 'bi bi-gem';
+                    }
+
+                    // Atualizar textos do Progresso / Pontos
+                    const pointsText = document.querySelector('.d-flex.align-items-end.gap-2.mb-1 span.fw-bold');
+                    if (pointsText) {
+                        let currentPoints = parseInt(pointsText.innerText) || 3179;
+                        pointsText.innerText = (currentPoints + 1834).toString(); 
+                    }
+                    
+                    const progressTexts = document.querySelectorAll('.d-flex.justify-content-between.mx-1 span');
+                    if (progressTexts.length >= 3) {
+                        progressTexts[0].innerText = 'Diamante';
+                        progressTexts[0].style.color = '#00A3FF';
+                        progressTexts[1].innerText = 'Nível Máximo Alcançado';
+                        progressTexts[2].innerText = '';
+                    }
+
+                    const progressBar = document.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.style.width = '100%';
+                        progressBar.setAttribute('aria-valuenow', '100');
+                    }
+
+                    // Pintar passos restantes da timeline
+                    const timelineSteps = document.querySelectorAll('.timeline-step');
+                    timelineSteps.forEach(step => {
+                        step.classList.add('completed');
+                        step.classList.remove('current', 'upcoming');
+                        const icon = step.querySelector('.step-icon');
+                        if (icon && !icon.querySelector('i')) {
+                            icon.innerHTML = '<i class="bi bi-check2"></i>';
+                        }
+                    });
+
+                    // Mostrar o Modal de Parabéns
+                    const modalParabens = new bootstrap.Modal(document.getElementById('modalParabens'));
+                    modalParabens.show();
+                }
+            }
+
+            function completeTask(taskType) {
+                let changed = false;
+                if (taskType === 'bio' && !bioCompleted) {
+                    bioCompleted = true;
+                    iconBio.classList.remove('bi-x', 'checklist-cross');
+                    iconBio.classList.add('bi-check2', 'checklist-check');
+                    changed = true;
+                } else if (taskType === 'notificacoes' && !notificacoesCompleted) {
+                    notificacoesCompleted = true;
+                    iconNotificacoes.classList.remove('bi-x', 'checklist-cross');
+                    iconNotificacoes.classList.add('bi-check2', 'checklist-check');
+                    changed = true;
+                }
+
+                if (changed) {
+                    passos++;
+                    if(passos > 6) passos = 6;
+                    textStep.innerText = `${passos} de 6`;
+                    stepTitle.innerText = `Passo ${passos}`;
+                    
+                    const dashoffset = 251 - (251 * (passos / 6));
+                    circleStep.style.strokeDashoffset = dashoffset;
+                    
+                    const progressCircle = document.querySelector('.circular-progress .progress-circle');
+                    const progressText = document.querySelector('.circular-progress .progress-text');
+                    const percent = Math.round((passos / 6) * 100);
+                    const mainDashoffset = 283 - (283 * (percent / 100));
+                    if(progressCircle) {
+                        progressCircle.style.strokeDashoffset = mainDashoffset;
+                        progressText.innerText = `${percent}%`;
+                    }
+
+                    checkDiamondLevel();
+                }
+            }
+
+            btnOpenNotificacoesModal.addEventListener('click', () => {
+                if (iconNotificacoes.classList.contains('bi-x')) {
+                    modalNotificacoes.show();
+                }
+            });
+
+            btnAtivarNotificacoes.addEventListener('click', () => {
+                completeTask('notificacoes');
+                modalNotificacoes.hide();
+                btnOpenNotificacoesModal.style.display = 'none';
+            });
+            
+            // Initialization for steps display
+            if (localStorage.getItem('userLevel') === 'diamante') {
+                bioCompleted = true;
+                notificacoesCompleted = true;
+                passos = 6;
+                
+                const bioText = localStorage.getItem('userBio') || 'Amo tecnologia e inovação!';
+                bioDisplayText.innerText = bioText;
+                bioEditContainer.style.display = 'none';
+                bioDisplayContainer.style.display = 'block';
+                btnSaveBio.innerHTML = '<span class="me-1 btn-text">Editar</span><i class="bi bi-pencil"></i>';
+                btnSaveBio.style.display = 'inline-block';
+                isBioEditing = false;
+                
+                iconBio.classList.remove('bi-x', 'checklist-cross');
+                iconBio.classList.add('bi-check2', 'checklist-check');
+                iconNotificacoes.classList.remove('bi-x', 'checklist-cross');
+                iconNotificacoes.classList.add('bi-check2', 'checklist-check');
+                btnOpenNotificacoesModal.style.display = 'none';
+
+                document.body.classList.add('is-diamond');
+                const nivelBadge = document.querySelector('.gold-badge');
+                if (nivelBadge) nivelBadge.innerText = 'Nível Diamante';
+                const badgeIcon = document.querySelector('.ouro-badge-icon i');
+                if (badgeIcon) badgeIcon.className = 'bi bi-gem';
+                
+                const pointsText = document.querySelector('.d-flex.align-items-end.gap-2.mb-1 span.fw-bold');
+                if (pointsText) {
+                    let currentPoints = parseInt(pointsText.innerText) || 3179;
+                    pointsText.innerText = (currentPoints + 1834).toString(); 
+                }
+                
+                const progressTexts = document.querySelectorAll('.d-flex.justify-content-between.mx-1 span');
+                if (progressTexts.length >= 3) {
+                    progressTexts[0].innerText = 'Diamante';
+                    progressTexts[0].style.color = '#00A3FF';
+                    progressTexts[1].innerText = 'Nível Máximo Alcançado';
+                    progressTexts[2].innerText = '';
+                }
+                const progressBar = document.querySelector('.progress-bar');
+                if (progressBar) {
+                    progressBar.style.width = '100%';
+                    progressBar.setAttribute('aria-valuenow', '100');
+                }
+                const timelineSteps = document.querySelectorAll('.timeline-step');
+                timelineSteps.forEach(step => {
+                    step.classList.add('completed');
+                    step.classList.remove('current', 'upcoming');
+                    const icon = step.querySelector('.step-icon');
+                    if (icon && !icon.querySelector('i')) {
+                        icon.innerHTML = '<i class="bi bi-check2"></i>';
+                    }
+                });
+            }
+
+            const dashoffsetInitial = 251 - (251 * (passos / 6));
+            circleStep.style.strokeDashoffset = dashoffsetInitial;
+            textStep.innerText = `${passos} de 6`;
+            stepTitle.innerText = `Passo ${passos}`;
+
+            const progressCircle = document.querySelector('.circular-progress .progress-circle');
+            const progressText = document.querySelector('.circular-progress .progress-text');
+            const percent = Math.round((passos / 6) * 100);
+            const mainDashoffset = 283 - (283 * (percent / 100));
+            if(progressCircle) {
+                progressCircle.style.strokeDashoffset = mainDashoffset;
+                progressText.innerText = `${percent}%`;
+            }
+        });
+    </script>
+</body>
+</html>

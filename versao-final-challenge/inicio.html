@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Plus - Início</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/assets/css/calendar.css" />
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="brand mb-4">
+                <h2 class="fw-bold m-0" style="color: white; line-height: 1;"><span style="font-weight: 300;">Care</span><br>Plus <i class="bi bi-activity"></i></h2>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li><a href="inicio.html" class="active"><i class="bi bi-house"></i> Início</a></li>
+                <li><a href="perfil.html"><i class="bi bi-person"></i> Perfil</a></li>
+                <li><a href="index.html"><i class="bi bi-calendar-check-fill"></i> Consultas</a></li>
+                <!-- <li><a href="#"><i class="bi bi-bell"></i> Notificações</a></li>
+                <li><a href="#"><i class="bi bi-gear"></i> Configurações</a></li> -->
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content" style="background-color: #FFFFFF;">
+            <div class="mx-auto w-100" style="max-width: 1400px;">
+
+            <!-- Header Profile -->
+            <div class="d-flex justify-content-end align-items-center mb-3">
+                <div class="header-profile">
+                    <div class="header-profile-img">
+                        <img src="C:/Users/Higor Sant'Anna/.gemini/antigravity/brain/fa0e4b88-a944-45d1-9dcf-5cf74b1651f4/profile_picture_1775333189612.png" alt="Helena Pinheiro">
+                        <div class="header-profile-badge">
+                            <i class="bi bi-patch-check-fill"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-start lh-sm">
+                        <span class="fw-bold" style="color: var(--care-corporate); font-size: 0.95rem;">Carlos Figreredo</span>
+                        <span class="text-muted" id="userLevelHeader" style="font-size: 0.8rem;">Cliente Ouro</span>
+                    </div>
+                </div>
+                <div class="header-icons d-flex align-items-center">
+                    <!-- Bell Dropdown -->
+                    <div class="notification-bell dropdown me-3">
+                        <div data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0" style="min-width: 250px;">
+                            <li><h6 class="dropdown-header fw-bold" style="color: var(--care-corporate);">Alertas</h6></li>
+                            <li><a class="dropdown-item text-wrap" href="#" style="font-size: 0.85rem;"><i class="bi bi-cloud-rain text-primary me-2"></i>Risco de chuva na sua próxima consulta.</a></li>
+                            <li><a class="dropdown-item text-wrap" href="perfil.html" style="font-size: 0.85rem;"><i class="bi bi-exclamation-circle text-warning me-2"></i>Lembrete: Complete seu perfil para atingir o Nível Diamante!</a></li>
+                        </ul>
+                    </div>
+                    <!-- Gear Dropdown -->
+                    <div class="dropdown">
+                        <i class="bi bi-gear" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item" href="perfil.html"><i class="bi bi-person me-2"></i>Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-card-checklist me-2"></i>Plano</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-credit-card me-2"></i>Pagamentos</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-moon me-2"></i>Modo escuro</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Permitir notificações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger fw-bold" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Log off</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 1: Risco de Atraso -->
+            <div class="care-card risk-card mb-3 p-4">
+                <div class="row align-items-center g-4">
+                    <!-- Left: Risco text -->
+                    <div class="col-md-4 col-lg-4">
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-2" style="color: var(--care-danger); font-size: 1.15rem;">
+                                <i class="bi bi-clock-history stroke-icon fw-bold"></i>
+                                <span class="fw-bold">Risco de atraso</span>
+                            </div>
+                            <p class="mb-0" style="color: #64748B; font-weight: 500; font-size: 0.95rem;">Alta probabilidade de chuva no caminho para sua próxima consulta:<br><strong style="color: var(--care-corporate);">Dr. João Silva - Cardiologia hoje às 14:00</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Center: Weather icon -->
+                    <div class="col-md-3 col-lg-3 d-flex justify-content-center">
+                        <div class="weather-icon-composition">
+                            <div style="font-size: 3.5rem; color: #A0E2FB; line-height: 1; position: relative;">
+                                <i class="bi bi-cloud-rain-fill"></i>
+                                <i class="bi bi-sun-fill" style="position: absolute; top: -10px; left: -10px; font-size: 2rem; color: #FFD56B; z-index: -1;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Buttons -->
+                    <div class="col-md-5 col-lg-5">
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex gap-2">
+                                <button id="btnRemarcar" class="btn btn-action-pill flex-fill text-decoration-none text-center">Deseja remarcar?</button>
+                                <button id="btnCancelar" class="btn btn-action-pill flex-fill">Deseja cancelar?</button>
+                            </div>
+                            <button id="btnTeleconsulta" class="btn btn-action-pill w-100">Deseja passar para teleconsulta?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Gamification Horizontal Dashboard -->
+            <div class="care-card risk-card mb-3 p-4">
+                <div class="row align-items-center g-4">
+                    <!-- Left: Diamond Progress -->
+                    <div class="col-md-5 col-lg-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div id="inicioBadgeIcon" class="ouro-badge-icon flex-shrink-0">
+                                <i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="fw-bold" id="userPointsText" style="color: var(--care-primary); font-size: 0.95rem;">3179</span>
+                                    <span style="color: var(--care-primary); font-size: 0.75rem; font-weight: 600;">Care Points</span>
+                                </div>
+                                <div class="progress-container mb-1 position-relative" style="width: 160px;">
+                                    <div class="progress" style="height: 10px; border-radius: 10px; background-color: #E2E8F0;">
+                                        <div class="progress-bar" id="userLevelProgressBar" role="progressbar" style="width: 75%; background-color: var(--care-primary); border-radius: 10px;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <i class="bi bi-info-circle position-absolute" style="right: -20px; top: -3px; font-size: 0.75rem; color: var(--care-primary);"></i>
+                                </div>
+                                <div class="text-center" id="userLevelText" style="font-size: 0.75rem; font-weight: 700; color: #F8B400; margin-top: 2px;">
+                                    Ouro
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center: Circular Progress & Steps -->
+                    <div class="col-md-3 col-lg-4 d-flex justify-content-center">
+                        <div class="d-flex align-items-center gap-3 w-100" style="max-width: 250px; border-left: 1px solid #E2E8F0; padding-left: 20px;">
+                            <div class="circular-progress flex-shrink-0" style="width: 65px; height: 65px;">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="bg-circle" cx="50" cy="50" r="42" style="stroke-width: 10;"></circle>
+                                    <circle class="progress-circle" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="66" style="stroke-width: 10;"></circle>
+                                </svg>
+                                <div class="progress-text" style="font-size: 0.85rem; color: var(--care-corporate);">3 de 4</div>
+                            </div>
+                            <div class="d-flex flex-column justify-content-center" style="line-height: 1.2;">
+                                <strong style="color: var(--care-corporate); font-size: 0.95rem;">Passo 3</strong>
+                                <span class="text-muted" style="font-size: 0.8rem; font-weight: 500;">Recompensa 3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Point Histories -->
+                    <div class="col-md-4 col-lg-4 d-flex justify-content-end">
+                        <div class="d-flex gap-2">
+                            <div class="point-history-card shadow-sm">
+                                <div class="history-points positive">+ 10 pontos!</div>
+                                <div class="history-desc">Consulta<br>realizada</div>
+                                <div class="history-date">10 Set</div>
+                            </div>
+                            <div class="point-history-card shadow-sm">
+                                <div class="history-points negative">- 5 pontos</div>
+                                <div class="history-desc">Faltou<br>Consulta</div>
+                                <div class="history-date">10 Set</div>
+                            </div>
+                            <div class="point-history-card shadow-sm">
+                                <div class="history-points positive">+ 10 pontos!</div>
+                                <div class="history-desc">Consulta<br>realizada</div>
+                                <div class="history-date">10 Set</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Agendamentos & Calendário -->
+            <div class="row g-3">
+                <!-- Coluna Esquerda: Agendamentos -->
+                <div class="col-lg-6">
+                    <div class="care-card risk-card h-100 p-3 px-4">
+                        <h5 class="card-title" style="margin-bottom: 20px;">Agendamentos</h5>
+
+                        <div class="appointment-list" id="dashboardAppointments">
+                            <!-- Injetado via JS -->
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="#" class="text-dark text-decoration-none fw-bold" style="font-size: 0.9rem;">Ver Mais <i class="bi bi-chevron-down ms-1" style="font-size: 0.8rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Mini Calendário Remasterizado -->
+                <div class="col-lg-6">
+                    <div class="care-card risk-card h-100 p-3 px-4 pb-0 d-flex flex-column align-items-center">
+                        <div class="w-100" style="max-width: 400px; margin: 0 auto;">
+                            <!-- Header de dias -->
+                            <div class="calendar-header mb-3">
+                                <div style="color: var(--care-corporate);">DOM</div>
+                                <div style="color: var(--care-corporate);">SEG</div>
+                                <div style="color: var(--care-corporate);">TER</div>
+                                <div style="color: var(--care-corporate);">QUA</div>
+                                <div style="color: var(--care-corporate);">QUI</div>
+                                <div style="color: var(--care-corporate);">SEX</div>
+                                <div style="color: var(--care-corporate);">SÁB</div>
+                            </div>
+
+                            <!-- Grid (replicado visualmente a partir da imagem) -->
+                            <div class="calendar-grid mini-calendar" id="miniCalendarGrid" style="gap: 5px;">
+                                <!-- Injetado via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Legendas do mini calendário -->
+                        <div class="d-flex justify-content-center gap-4 mt-auto w-100 pb-3" style="font-size: 0.65rem; color: var(--text-dark); font-weight: 700;">
+                            <div class="d-flex align-items-center gap-1">
+                                <span class="dot" style="background-color: var(--care-success);"></span> Marcadas por você
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <span class="dot" style="background-color: #F8B400;"></span> Avisar disponível
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <span class="dot" style="background-color: var(--care-danger);"></span> Overbook
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div> <!-- Fechamento da div mx-auto -->
+        </main>
+    </div>
+
+    <!-- Modal para Seleção Inteligente de Consulta -->
+    <div class="modal fade" id="modalSelecaoConsulta" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header border-0 bg-light">
+            <h5 class="modal-title fw-bold" style="color: var(--care-corporate)">
+              Selecione a Consulta
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="text-muted small mb-3">
+              Qual agendamento você deseja gerenciar?
+            </p>
+            <div id="listaConsultasModal" class="d-flex flex-column gap-3">
+              <!-- Injetado via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Cancelar -->
+    <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 12px; border: none;">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="cancelModalLabel" style="color: var(--care-danger);"><i class="bi bi-exclamation-triangle-fill me-2"></i>Cancelar Consulta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center pt-2">
+            <p class="mb-2 text-muted">Tem certeza de que deseja cancelar a sua consulta com <strong>Dr. João Silva (Cardiologia)</strong>?</p>
+            <p style="font-size: 0.85rem; color: var(--care-danger);">Atenção: Cancelamentos no mesmo dia consomem Care Points.</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Manter</button>
+            <button type="button" class="btn btn-danger rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Sim, cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Teleconsulta -->
+    <div class="modal fade" id="teleconsultaModal" tabindex="-1" aria-labelledby="teleconsultaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 12px; border: none;">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="teleconsultaModalLabel" style="color: var(--care-primary);"><i class="bi bi-camera-video-fill me-2"></i>Passar para Teleconsulta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center pt-2">
+            <p class="mb-2 text-muted">Deseja converter sua consulta presencial para teleconsulta no aplicativo?</p>
+            <p style="font-size: 0.85rem; color: var(--care-corporate); font-weight: 500;">O horário (Hoje às 14:00) será mantido.</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Voltar</button>
+            <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Confirmar teleconsulta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="src/scripts/main.js"></script>
+</body>
+</html>
