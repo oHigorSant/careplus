@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Plus - Login</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/assets/css/login.css">
+</head>
+<body>
+    <div class="container-fluid h-100 p-0 overflow-hidden">
+        <div class="row h-100 g-0">
+            <!-- Left Panel (Branding) -->
+            <div class="col-lg-6 d-none d-lg-flex flex-column justify-content-center align-items-center text-white p-5 left-panel">
+                <div class="branding-overlay"></div>
+                <div class="branding-content w-75  position-relative">
+                    <div class="logo mb-5 ">
+                        <img src="src/assets/imgs/logo2.png" alt="Care Plus Logo" style="height: 70px; filter: brightness(0) invert(1);">
+                    </div>
+                    <h1 class="display-5 fw-bold mb-4">Cuidar de você.<br>Esse é o nosso plano.</h1>
+                    <p class="fs-5 mb-4">Acesse sua conta e gerencie sua saúde com facilidade.</p>
+                </div>
+            </div>
+
+            <!-- Right Panel (Login Form) -->
+            <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center bg-white p-4 right-panel">
+                <div class="card border-0 p-2 login-card w-100" style="max-width: 450px;">
+                    <div class="card-body text-center p-0">
+                        <div class="login-header mb-4 d-lg-none">
+                            <img src="src/assets/imgs/care-logo.svg" alt="Care Plus Logo" style="height: 60px;">
+                        </div>
+                        <h2 class="fw-bold mb-2 color-corporate">Bem-vindo de volta</h2>
+                        <p class="text-muted mb-4 small">Por favor, insira suas credenciais de acesso.</p>
+                        
+                        <!-- Tabs for Category -->
+                        <div class="nav nav-pills mb-4 justify-content-center care-tabs" id="pills-tab" role="tablist">
+                            <button class="nav-link active rounded-pill px-4 small" data-bs-toggle="pill">Beneficiário</button>
+                            <button class="nav-link rounded-pill px-4 small" data-bs-toggle="pill">Empresa</button>
+                        </div>
+
+                        <form id="loginForm" class="text-start">
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-muted small fw-bold">CPF</label>
+                                <input type="text" class="form-control rounded-3 py-2 px-3" id="email" placeholder="000.000.000-00" value="123.456.789-00" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label text-muted small fw-bold">Senha</label>
+                                <input type="password" class="form-control rounded-3 py-2 px-3" id="password" placeholder="Sua senha" value="password123" required>
+                            </div>
+                            <div class="text-end mb-4">
+                                <a href="#" class="text-decoration-none small text-muted">Esqueceu a senha?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary-care w-100 py-3 mb-4 rounded-pill fw-bold">ENTRAR</button>
+                            
+                            <div class="text-center">
+                                <a href="#" class="text-decoration-none small color-primary fw-bold d-block mb-3">Esqueceu a senha?</a>
+                                <p class="small text-muted mb-0">Primeiro acesso? <a href="#" class="color-primary fw-bold text-decoration-none">Clique aqui</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="src/scripts/login.js"></script>
+</body>
+</html>
