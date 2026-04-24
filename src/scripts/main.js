@@ -33,9 +33,7 @@ const MONTH_NAMES = [
 
 function init() {
   setupSidebar();
-  const isConsultasPage = 
-    window.location.pathname.includes("consultas.html") || 
-    window.location.pathname.includes("index.html");
+  const isConsultasPage = window.location.pathname.includes("consultas.html");
   const isInicioPage =
     window.location.pathname.includes("inicio.html") ||
     window.location.pathname.endsWith("/");
@@ -135,7 +133,7 @@ window.handleAppointmentAction = (id, action) => {
 
   if (action === "remarcar") {
     sessionStorage.setItem("remarcar_appointment", JSON.stringify(app));
-    window.location.href = "index.html";
+    window.location.href = "consultas.html";
   } else if (action === "cancelar") {
     if (confirm("Confirmar cancelamento deste agendamento?")) {
       const novas = consultas.filter((c) => c.id !== id);
@@ -413,7 +411,7 @@ function updateDashboardCalendar() {
     state.today,
     state.today,
     getConsultas(),
-    (date) => (window.location.href = `index.html?date=${date}`),
+    (date) => (window.location.href = `consultas.html?date=${date}`),
     null,
     null,
   );

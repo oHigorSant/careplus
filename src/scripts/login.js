@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cpf === DUMMY_CPF && password === DUMMY_PASSWORD) {
             // Sucesso
-            window.location.href = 'index.html'; // Redirect to the scheduling page
+            window.location.href = 'inicio.html'; // Redirect to the dashboard page
         } else {
             alert('Erro! CPF ou senha incorretos.');
             passwordInput.value = '';
